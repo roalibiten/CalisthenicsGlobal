@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* CalisthenicsGlobalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* CalisthenicsGlobalTests.m */; };
+		0D87C96193CA4114BADEB680 /* LandasansUltraLight-qZ080.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7D55DCF71D884808AE8FC8B3 /* LandasansUltraLight-qZ080.otf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		AB0C50D7A9AC42959E0492F3 /* LandasansMedium-ALJ6m.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6FB54A57956470BB0AC7593 /* LandasansMedium-ALJ6m.otf */; };
 		B00BE567F9A6586BECE960B8 /* libPods-CalisthenicsGlobal-CalisthenicsGlobalTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 733FD2306E5ED1B056F3B423 /* libPods-CalisthenicsGlobal-CalisthenicsGlobalTests.a */; };
 		D431FE335F18B94B120087C6 /* libPods-CalisthenicsGlobal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC006545D5FE5D1F519980FB /* libPods-CalisthenicsGlobal.a */; };
-		AB0C50D7A9AC42959E0492F3 /* LandasansMedium-ALJ6m.otf in Resources */ = {isa = PBXBuildFile; fileRef = D6FB54A57956470BB0AC7593 /* LandasansMedium-ALJ6m.otf */; };
-		0D87C96193CA4114BADEB680 /* LandasansUltraLight-qZ080.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7D55DCF71D884808AE8FC8B3 /* LandasansUltraLight-qZ080.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,12 +42,12 @@
 		1CB69CF448748603F990E92B /* Pods-CalisthenicsGlobal-CalisthenicsGlobalTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalisthenicsGlobal-CalisthenicsGlobalTests.debug.xcconfig"; path = "Target Support Files/Pods-CalisthenicsGlobal-CalisthenicsGlobalTests/Pods-CalisthenicsGlobal-CalisthenicsGlobalTests.debug.xcconfig"; sourceTree = "<group>"; };
 		706D06E4A47816DAFDE51AA3 /* Pods-CalisthenicsGlobal.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalisthenicsGlobal.release.xcconfig"; path = "Target Support Files/Pods-CalisthenicsGlobal/Pods-CalisthenicsGlobal.release.xcconfig"; sourceTree = "<group>"; };
 		733FD2306E5ED1B056F3B423 /* libPods-CalisthenicsGlobal-CalisthenicsGlobalTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CalisthenicsGlobal-CalisthenicsGlobalTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D55DCF71D884808AE8FC8B3 /* LandasansUltraLight-qZ080.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "LandasansUltraLight-qZ080.otf"; path = "../assets/fonts/LandasansUltraLight-qZ080.otf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = CalisthenicsGlobal/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7D33B58B38240A900BDB7F9 /* Pods-CalisthenicsGlobal.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalisthenicsGlobal.debug.xcconfig"; path = "Target Support Files/Pods-CalisthenicsGlobal/Pods-CalisthenicsGlobal.debug.xcconfig"; sourceTree = "<group>"; };
 		CC006545D5FE5D1F519980FB /* libPods-CalisthenicsGlobal.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CalisthenicsGlobal.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6FB54A57956470BB0AC7593 /* LandasansMedium-ALJ6m.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "LandasansMedium-ALJ6m.otf"; path = "../assets/fonts/LandasansMedium-ALJ6m.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		D6FB54A57956470BB0AC7593 /* LandasansMedium-ALJ6m.otf */ = {isa = PBXFileReference; name = "LandasansMedium-ALJ6m.otf"; path = "../assets/fonts/LandasansMedium-ALJ6m.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		7D55DCF71D884808AE8FC8B3 /* LandasansUltraLight-qZ080.otf */ = {isa = PBXFileReference; name = "LandasansUltraLight-qZ080.otf"; path = "../assets/fonts/LandasansUltraLight-qZ080.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +142,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		ACCB183B185E4D71902D1CBD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D6FB54A57956470BB0AC7593 /* LandasansMedium-ALJ6m.otf */,
+				7D55DCF71D884808AE8FC8B3 /* LandasansUltraLight-qZ080.otf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		DEEE27B692956E087C536CE2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,16 +163,6 @@
 			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		ACCB183B185E4D71902D1CBD /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				D6FB54A57956470BB0AC7593 /* LandasansMedium-ALJ6m.otf */,
-				7D55DCF71D884808AE8FC8B3 /* LandasansUltraLight-qZ080.otf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
