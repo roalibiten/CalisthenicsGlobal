@@ -23,12 +23,12 @@ export default class MainScreen extends Component {
                     </ImageBackground>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=>{
-                        this.props.navigation.navigate('CaloriCalculator')
+                        this.props.navigation.navigate('Calculators')
                     }}  style={styles.button}>
-                    <ImageBackground source={require('../../assets/images/image2.jpeg')} style={styles.backgroundImage}>
+                    <ImageBackground source={require('../../assets/images/image5.jpeg')} style={styles.backgroundImage}>
                         <LinearGradient colors={['white','black', 'black']}  style={styles.card2}>
                         </LinearGradient>
-                        <Text style={styles.cardTitle}> Calori Calc. </Text>
+                        <Text style={styles.cardTitle}> Calculators </Text>
                     </ImageBackground>
                     </TouchableOpacity>
                     </View>
