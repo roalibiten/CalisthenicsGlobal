@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Text, StyleSheet, View, SafeAreaView, Dimensions, TouchableOpacity, Image, ScrollView, ImageBackground } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient';
 
-import BackButton from '../components/BackButton';
+import BackButton from '../../components/BackButton';
 
 export default class Calculators extends Component {
     render() {
@@ -15,18 +15,18 @@ export default class Calculators extends Component {
                      <View style={{alignItems:"center"}}>
 
                      <TouchableOpacity onPress={()=>{
-                        this.props.navigation.goBack()
+                        this.props.navigation.navigate("CaloriCalculator")
                         }}> 
-                        <ImageBackground source={require('../../assets/images/image2.jpeg')} style={styles.backgroundImage} resizeMode="cover" >
+                        <ImageBackground source={require('../../../assets/images/image2.jpeg')} style={styles.backgroundImage} resizeMode="cover" >
                             <LinearGradient colors={['white','black', 'black']}  style={styles.item}/>
                             <Text style={styles.cardTitle}>Calori Calculator</Text>
                         </ImageBackground>
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={()=>{
-                        this.props.navigation.goBack()
-                        }}> 
-                        <ImageBackground source={require('../../assets/images/bodyFat.png')} style={styles.backgroundImage} resizeMode="cover" >
+                        this.props.navigation.navigate("BodyFatCalculator")
+                    }}> 
+                        <ImageBackground source={require('../../../assets/images/bodyFat.png')} style={styles.backgroundImage} resizeMode="cover" >
                             <LinearGradient colors={['white','black', 'black']}  style={styles.item}/>
                             <Text style={styles.cardTitle}>Body Fat Calculator</Text>
                         </ImageBackground>
