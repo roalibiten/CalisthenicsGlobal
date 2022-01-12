@@ -21,6 +21,7 @@ export default class CaloriCalculator extends Component {
             lbArray:[],
             cmArray:[],
             inchArray:[],
+            activityLevelArray:["Sedentary: little or no exercises","Light: exercise 1-3 tm/wk","Moderate: exercise 4-5 tm/wk","Active: daily exercise or intense 4-5 tm/wk","Very Active: intense exercise 6-7 tm/wk","Extra Active: very intense exercise daily or physical job"],
 
             bmr:0,
 
@@ -132,9 +133,21 @@ export default class CaloriCalculator extends Component {
                         </View>
                     </View>
                     <View style={styles.row}>
-                        <Text style={styles.inputTitle}>Age</Text>
 
-                        <View style={[styles.optionsView]}>
+                        
+                    </View>
+                    <View style={styles.pickerTitleRow}>
+                        <Text style={[styles.inputTitle,{marginRight:0}]}>Age</Text>
+
+                        <Text style={[styles.inputTitle,{marginRight:0}]}>Weight ({this.state.metricSystem? "kg" : "lb"})</Text>
+
+                        
+                        <Text style={[styles.inputTitle,{marginRight:0}]}>Height ({this.state.metricSystem? "cm" : "feet"})</Text>
+
+                       
+                    </View>
+                    <View style={styles.pickerRow}>
+                    <View style={[styles.pickerView]}>
                         
     
                         <ScrollPicker
@@ -152,11 +165,7 @@ export default class CaloriCalculator extends Component {
                             wrapperColor='transparent'
                         />
                         </View>
-                    </View>
-                    <View style={styles.row}>
-                        <Text style={styles.inputTitle}>Weight ({this.state.metricSystem? "kg" : "lb"})</Text>
-
-                        <View style={styles.optionsView}>
+                    <View style={[styles.pickerView,{marginRight:screenWidth*0.09}]}>
                         
                         <ScrollPicker
                             dataSource={this.state.metricSystem? this.state.kgArray : this.state.lbArray}
@@ -174,12 +183,8 @@ export default class CaloriCalculator extends Component {
                           
                         />
                         </View>
-                    </View>
-                    <View style={styles.row}>
-                        <Text style={styles.inputTitle}>Height ({this.state.metricSystem? "cm" : "feet"})</Text>
+                        <View style={[styles.pickerView,{marginRight:screenWidth*0.09}]}>
 
-                        <View style={styles.optionsView}>
-                        
                         <ScrollPicker
                             dataSource={this.state.metricSystem? this.state.cmArray: this.state.inchArray}
                             selectedIndex={80}
@@ -187,7 +192,7 @@ export default class CaloriCalculator extends Component {
                                 this.setState({height:data})
                             }}
                             wrapperHeight={screenHeight*0.1}
-                            wrapperWidth={screenWidth*0.1}
+                            wrapperWidth={screenWidth*0.05}
                             wrapperBackground='black'
                             itemHeight={screenHeight*0.05}
                             highlightColor='#d8d8d8'
@@ -197,6 +202,59 @@ export default class CaloriCalculator extends Component {
                         />
                         </View>
                     </View>
+                    <View style={styles.row}>
+                        <Text style={[styles.inputTitle,{marginRight:0}]}>Activity</Text>
+
+
+                        <View style={{width:screenWidth*0.7,height:screenHeight*0.1}}>
+                        <ScrollPicker
+                            dataSource={this.state.activityLevelArray}
+                            selectedIndex={80}
+                            onValueChange={(data, selectedIndex) => {
+                                this.setState({height:data})
+                            }}
+                            wrapperHeight={screenHeight*0.1}
+                            wrapperWidth={screenWidth*0.05}
+                            wrapperBackground='black'
+                            itemHeight={screenHeight*0.05}
+                            highlightColor='#d8d8d8'
+                            highlightBorderWidth={2}
+                            wrapperColor='transparent'
+                          
+                        />
+                        </View>
+                       
+                    </View>
+                    <View style={styles.row}>
+                        <Text style={styles.inputTitle}>Goal</Text>
+
+                        <View style={styles.optionsView}>
+                        <TouchableWithoutFeedback
+                        onPress={()=>{this.setState({gender:"male"})}}
+                        >
+                            <View  style={this.state.gender=="male"?[styles.measurementButton, {backgroundColor:"#E0E0E0"} ]: styles.measurementButton}>
+                            <Text style={styles.measurementText}>Gain Muscle</Text>
+                            </View>
+                        </TouchableWithoutFeedback>
+                        <TouchableWithoutFeedback
+                        onPress={()=>{this.setState({gender:"female"})}}
+                        >
+                            <View style={this.state.gender=="female"?[styles.measurementButton, {backgroundColor:"#E0E0E0"} ]: styles.measurementButton}>
+                                <Text style={styles.measurementText}>Protect</Text>
+                            </View>
+                        </TouchableWithoutFeedback>
+                        <TouchableWithoutFeedback
+                        onPress={()=>{this.setState({gender:"female"})}}
+                        >
+                            <View style={this.state.gender=="female"?[styles.measurementButton, {backgroundColor:"#E0E0E0"} ]: styles.measurementButton}>
+                                <Text style={styles.measurementText}>Lose Fat</Text>
+                            </View>
+                        </TouchableWithoutFeedback>
+                        </View>
+                        
+                    </View>
+                    
+
                     <View style={styles.buttonRow}>
                        
 
@@ -231,6 +289,20 @@ const styles = StyleSheet.create({
         justifyContent:"space-between",
         marginTop:screenHeight*0.05
     },
+    pickerTitleRow:{
+        flexDirection:"row",
+        alignItems:"center",
+        justifyContent:"space-between",
+        paddingHorizontal:screenWidth*0.015
+        
+    },
+    pickerRow:{
+        flexDirection:"row",
+        alignItems:"center",
+        justifyContent:"space-between",
+        marginTop:screenHeight*0.01
+        
+    },
     inputTitle:{
         fontFamily:"Landasans-Medium",
         fontSize:screenWidth*0.07,
@@ -249,6 +321,10 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         width:screenWidth*0.4,
         justifyContent:"flex-end"
+    },
+    pickerView:{
+        flexDirection:"row",
+        width:screenWidth*0.1,
     },
     calculateButton:{
         width:screenWidth*0.4,
