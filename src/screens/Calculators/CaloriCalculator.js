@@ -133,9 +133,58 @@ export default class CaloriCalculator extends Component {
                         </View>
                     </View>
                     <View style={styles.row}>
+                        <Text style={styles.inputTitle}>Goal</Text>
 
+                        <View style={styles.optionsView}>
+                        <TouchableWithoutFeedback
+                        onPress={()=>{this.setState({gender:"male"})}}
+                        >
+                            <View  style={this.state.gender=="male"?[styles.measurementButton, {backgroundColor:"#E0E0E0"} ]: styles.measurementButton}>
+                            <Text style={styles.measurementText}>Gain Muscle</Text>
+                            </View>
+                        </TouchableWithoutFeedback>
+                        <TouchableWithoutFeedback
+                        onPress={()=>{this.setState({gender:"female"})}}
+                        >
+                            <View style={this.state.gender=="female"?[styles.measurementButton, {backgroundColor:"#E0E0E0"} ]: styles.measurementButton}>
+                                <Text style={styles.measurementText}>Protect</Text>
+                            </View>
+                        </TouchableWithoutFeedback>
+                        <TouchableWithoutFeedback
+                        onPress={()=>{this.setState({gender:"female"})}}
+                        >
+                            <View style={this.state.gender=="female"?[styles.measurementButton, {backgroundColor:"#E0E0E0"} ]: styles.measurementButton}>
+                                <Text style={styles.measurementText}>Lose Fat</Text>
+                            </View>
+                        </TouchableWithoutFeedback>
+                        </View>
                         
                     </View>
+                    <View style={[styles.row,{marginTop:screenHeight*0.07}]}>
+                        <Text style={[styles.inputTitle,{marginRight:0}]}>Activity</Text>
+
+
+                        <View style={{width:screenWidth*0.7,height:screenHeight*0.1}}>
+                        <ScrollPicker
+                            dataSource={this.state.activityLevelArray}
+                            selectedIndex={80}
+                            onValueChange={(data, selectedIndex) => {
+                                this.setState({height:data})
+                            }}
+                            wrapperHeight={screenHeight*0.1}
+                            wrapperWidth={screenWidth*0.05}
+                            wrapperBackground='black'
+                            itemHeight={screenHeight*0.05}
+                            highlightColor='#d8d8d8'
+                            highlightBorderWidth={2}
+                            wrapperColor='transparent'
+                          
+                        />
+                        </View>
+                       
+                    </View>
+                    
+                    
                     <View style={styles.pickerTitleRow}>
                         <Text style={[styles.inputTitle,{marginRight:0}]}>Age</Text>
 
@@ -202,58 +251,6 @@ export default class CaloriCalculator extends Component {
                         />
                         </View>
                     </View>
-                    <View style={styles.row}>
-                        <Text style={[styles.inputTitle,{marginRight:0}]}>Activity</Text>
-
-
-                        <View style={{width:screenWidth*0.7,height:screenHeight*0.1}}>
-                        <ScrollPicker
-                            dataSource={this.state.activityLevelArray}
-                            selectedIndex={80}
-                            onValueChange={(data, selectedIndex) => {
-                                this.setState({height:data})
-                            }}
-                            wrapperHeight={screenHeight*0.1}
-                            wrapperWidth={screenWidth*0.05}
-                            wrapperBackground='black'
-                            itemHeight={screenHeight*0.05}
-                            highlightColor='#d8d8d8'
-                            highlightBorderWidth={2}
-                            wrapperColor='transparent'
-                          
-                        />
-                        </View>
-                       
-                    </View>
-                    <View style={styles.row}>
-                        <Text style={styles.inputTitle}>Goal</Text>
-
-                        <View style={styles.optionsView}>
-                        <TouchableWithoutFeedback
-                        onPress={()=>{this.setState({gender:"male"})}}
-                        >
-                            <View  style={this.state.gender=="male"?[styles.measurementButton, {backgroundColor:"#E0E0E0"} ]: styles.measurementButton}>
-                            <Text style={styles.measurementText}>Gain Muscle</Text>
-                            </View>
-                        </TouchableWithoutFeedback>
-                        <TouchableWithoutFeedback
-                        onPress={()=>{this.setState({gender:"female"})}}
-                        >
-                            <View style={this.state.gender=="female"?[styles.measurementButton, {backgroundColor:"#E0E0E0"} ]: styles.measurementButton}>
-                                <Text style={styles.measurementText}>Protect</Text>
-                            </View>
-                        </TouchableWithoutFeedback>
-                        <TouchableWithoutFeedback
-                        onPress={()=>{this.setState({gender:"female"})}}
-                        >
-                            <View style={this.state.gender=="female"?[styles.measurementButton, {backgroundColor:"#E0E0E0"} ]: styles.measurementButton}>
-                                <Text style={styles.measurementText}>Lose Fat</Text>
-                            </View>
-                        </TouchableWithoutFeedback>
-                        </View>
-                        
-                    </View>
-                    
 
                     <View style={styles.buttonRow}>
                        
@@ -293,7 +290,8 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         alignItems:"center",
         justifyContent:"space-between",
-        paddingHorizontal:screenWidth*0.015
+        paddingHorizontal:screenWidth*0.015,
+        marginTop:screenHeight*0.08
         
     },
     pickerRow:{
@@ -343,6 +341,6 @@ const styles = StyleSheet.create({
         flexDirection:"row",
         alignItems:"center",
         justifyContent:"center",
-        marginTop:screenHeight*0.1
+        marginTop:screenHeight*0.07
     },
 })
