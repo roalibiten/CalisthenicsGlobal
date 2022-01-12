@@ -11,14 +11,16 @@ export default class CaloriCalculator extends Component {
   
         this.state = {
             metricSystem:true,
-            gender:"",
+            gender:"male",
             height:170,
             weight:80,
             age:22,
 
             ageArray:[],
             kgArray:[],
+            lbArray:[],
             cmArray:[],
+            inchArray:[],
 
             bmr:0,
 
@@ -33,6 +35,8 @@ export default class CaloriCalculator extends Component {
         var ageArray=[]
         var kgArray=[]
         var cmArray=[]
+        var inchArray=[]
+        var lbArray=[]
 
         for(var x=10 ; x<100; x++){
             ageArray.push(x);
@@ -40,21 +44,38 @@ export default class CaloriCalculator extends Component {
         for(var x=20 ; x<300; x++){
             kgArray.push(x);
         }
-        for(var x=50 ; x<300; x++){
+        for(var x=90 ; x<300; x++){
             cmArray.push(x);
+        }
+        for(var x=50 ; x<600; x++){
+            lbArray.push(x);
+        }
+        for(var x=3 ; x<10; x++){
+            for(var y=0 ; y<13; y++){
+                inchArray.push(x+"'"+y);
+            }
         }
         this.setState({ageArray})
         this.setState({kgArray})
+        this.setState({lbArray})
         this.setState({cmArray})
+        this.setState({inchArray})
 
     }
 
     calculateBMR(){
         var bmr;
+        var weight=this.state.weight
+        var height=this.state.height
+        if(!this.state.metricSystem){
+            weight=weight*0.453
+            height=this.state.height.split("'")[0]*30.48+this.state.height.split("'")[1]*2.54
+            console.log(height)
+        }
         if(this.state.gender=="male"){
-            bmr=66.5+ (13.75*this.state.weight)+(5.03*this.state.height)-(6.75*this.state.age)
+            bmr=(10*this.state.weight)+(6.25*this.state.height)-(5*this.state.age)+5
         }else if(this.state.gender=="female"){
-            bmr=655.1+ (9.56*this.state.weight)+(1.85*this.state.height)-(4.68*this.state.age)
+            bmr=(10*this.state.weight)+(6.25*this.state.height)-(5*this.state.age)-161
         }
         this.setState({
             bmr
@@ -138,7 +159,7 @@ export default class CaloriCalculator extends Component {
                         <View style={styles.optionsView}>
                         
                         <ScrollPicker
-                            dataSource={this.state.kgArray}
+                            dataSource={this.state.metricSystem? this.state.kgArray : this.state.lbArray}
                             selectedIndex={60}
                             onValueChange={(data, selectedIndex) => {
                                 this.setState({weight:data})
@@ -160,8 +181,8 @@ export default class CaloriCalculator extends Component {
                         <View style={styles.optionsView}>
                         
                         <ScrollPicker
-                            dataSource={this.state.cmArray}
-                            selectedIndex={120}
+                            dataSource={this.state.metricSystem? this.state.cmArray: this.state.inchArray}
+                            selectedIndex={80}
                             onValueChange={(data, selectedIndex) => {
                                 this.setState({height:data})
                             }}
