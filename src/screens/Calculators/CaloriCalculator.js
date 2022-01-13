@@ -21,9 +21,13 @@ export default class CaloriCalculator extends Component {
             lbArray:[],
             cmArray:[],
             inchArray:[],
-            activityLevelArray:["Sedentary: little or no exercises","Light: exercise 1-3 tm/wk","Moderate: exercise 4-5 tm/wk","Active: daily exercise or intense 4-5 tm/wk","Very Active: intense exercise 6-7 tm/wk","Extra Active: very intense exercise daily or physical job"],
+            activityLevelArray:["Sedentary: little or no exercises","Light: exercise 1-3 tm/wk","Moderate: exercise 3-5 tm/wk","Active: daily exercise or intense 4-5 tm/wk","Very Active: intense exercise 6-7 tm/wk","Extra Active: very intense exercise daily or physical job"],
+            activityLevel:1.2,
 
+            goal:"protect",
+            
             bmr:0,
+            protect:0
 
         };
     }
@@ -79,12 +83,19 @@ export default class CaloriCalculator extends Component {
             bmr=(10*this.state.weight)+(6.25*this.state.height)-(5*this.state.age)-161
         }
         this.setState({
-            bmr
+            bmr,
+            protect:bmr*this.state.activityLevel
         })
+        console.log("age"+this.state.age)
+        console.log("gender"+this.state.gender)
+        console.log("actvty"+this.state.activityLevel)
+        console.log("weight"+this.state.weight)
+        console.log("height"+this.state.height)
+
     }
 
     render() {
-        console.log(this.state.age)
+        console.log(this.state.activityLevel)
         return (
             <SafeAreaView>
 
@@ -137,24 +148,24 @@ export default class CaloriCalculator extends Component {
 
                         <View style={styles.optionsView}>
                         <TouchableWithoutFeedback
-                        onPress={()=>{this.setState({gender:"male"})}}
+                        onPress={()=>{this.setState({goal:"loseFat"})}}
                         >
-                            <View  style={this.state.gender=="male"?[styles.measurementButton, {backgroundColor:"#E0E0E0"} ]: styles.measurementButton}>
-                            <Text style={styles.measurementText}>Gain Muscle</Text>
+                            <View  style={this.state.goal=="loseFat"?[styles.measurementButton, {backgroundColor:"#E0E0E0"} ]: styles.measurementButton}>
+                            <Text style={styles.measurementText}>Lose Fat</Text>
                             </View>
                         </TouchableWithoutFeedback>
                         <TouchableWithoutFeedback
-                        onPress={()=>{this.setState({gender:"female"})}}
+                        onPress={()=>{this.setState({goal:"protect"})}}
                         >
-                            <View style={this.state.gender=="female"?[styles.measurementButton, {backgroundColor:"#E0E0E0"} ]: styles.measurementButton}>
+                            <View style={this.state.goal=="protect"?[styles.measurementButton, {backgroundColor:"#E0E0E0"} ]: styles.measurementButton}>
                                 <Text style={styles.measurementText}>Protect</Text>
                             </View>
                         </TouchableWithoutFeedback>
                         <TouchableWithoutFeedback
-                        onPress={()=>{this.setState({gender:"female"})}}
+                        onPress={()=>{this.setState({goal:"gainMuscle"})}}
                         >
-                            <View style={this.state.gender=="female"?[styles.measurementButton, {backgroundColor:"#E0E0E0"} ]: styles.measurementButton}>
-                                <Text style={styles.measurementText}>Lose Fat</Text>
+                            <View style={this.state.goal=="gainMuscle"?[styles.measurementButton, {backgroundColor:"#E0E0E0"} ]: styles.measurementButton}>
+                                <Text style={styles.measurementText}>Gain Muscle</Text>
                             </View>
                         </TouchableWithoutFeedback>
                         </View>
@@ -167,9 +178,22 @@ export default class CaloriCalculator extends Component {
                         <View style={{width:screenWidth*0.7,height:screenHeight*0.1}}>
                         <ScrollPicker
                             dataSource={this.state.activityLevelArray}
-                            selectedIndex={80}
+                            selectedIndex={0}
                             onValueChange={(data, selectedIndex) => {
-                                this.setState({height:data})
+                                var activityLevel=1.2
+                                if(selectedIndex==1){
+                                    activityLevel=1.375
+                                }else if(selectedIndex==2){
+                                    activityLevel=1.475
+                                }else if(selectedIndex==3){
+                                    activityLevel=1.55
+                                }else if(selectedIndex==4){
+                                    activityLevel=1.725
+                                }else if(selectedIndex==5){
+                                    activityLevel=1.9
+                                }
+                                this.setState({activityLevel})
+
                             }}
                             wrapperHeight={screenHeight*0.1}
                             wrapperWidth={screenWidth*0.05}
@@ -267,6 +291,8 @@ export default class CaloriCalculator extends Component {
                     
                 </View>
                 <Text>BMR: {this.state.bmr}</Text>
+                <Text>protect: {this.state.protect}</Text>
+
             </SafeAreaView>
         )
     }
