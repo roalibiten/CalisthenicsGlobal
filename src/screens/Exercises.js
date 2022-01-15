@@ -8,7 +8,7 @@ export default class Exercises extends Component {
         return (
             <SafeAreaView>
                 
-                <BackButton props={this.props}/>
+                <BackButton goBack={()=>{this.props.navigation.goBack()}}/>
 
                 <TouchableOpacity onPress={()=>{
                     this.props.navigation.goBack()

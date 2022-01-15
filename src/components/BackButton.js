@@ -5,7 +5,9 @@ export default class BackButton extends Component {
     render() {
         return (
             <TouchableOpacity onPress={()=>{
-                this.props.props.navigation.goBack()
+                
+                    this.props.goBack()
+
             }}> 
                 <Image source={require('../../assets/images/backButton.png')} style={styles.backButton} resizeMode="center" />
 

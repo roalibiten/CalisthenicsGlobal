@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, SafeAreaView, Dimensions, TouchableWithoutFeedback, TextInput } from 'react-native'
+import { Text, StyleSheet, View, SafeAreaView, Dimensions, TouchableWithoutFeedback, TextInput, Modal } from 'react-native'
 
 import BackButton from '../../components/BackButton';
 import ScrollPicker from 'react-native-wheel-scrollview-picker';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
+import CaloriModal from './CaloriModal'
 
 export default class CaloriCalculator extends Component {
     constructor(props) {
@@ -27,7 +29,9 @@ export default class CaloriCalculator extends Component {
             goal:"protect",
             
             bmr:0,
-            protect:0
+            calori:0,
+
+            modalIsVisible:false
 
         };
     }
@@ -84,7 +88,8 @@ export default class CaloriCalculator extends Component {
         }
         this.setState({
             bmr,
-            protect:bmr*this.state.activityLevel
+            calori:bmr*this.state.activityLevel,
+            modalIsVisible:true
         })
         console.log("age"+this.state.age)
         console.log("gender"+this.state.gender)
@@ -95,11 +100,10 @@ export default class CaloriCalculator extends Component {
     }
 
     render() {
-        console.log(this.state.activityLevel)
         return (
             <SafeAreaView>
 
-                <BackButton props={this.props}/>
+                <BackButton goBack={()=>{this.props.navigation.goBack()}}/>
 
                 <View style={styles.container}>
 
@@ -291,8 +295,13 @@ export default class CaloriCalculator extends Component {
                     
                 </View>
                 <Text>BMR: {this.state.bmr}</Text>
-                <Text>protect: {this.state.protect}</Text>
+                <Text>protect: {this.state.calori}</Text>
 
+            
+
+                <Modal visible={this.state.modalIsVisible}>
+                    <CaloriModal closeModal={()=>{this.setState({modalIsVisible:false})}} bmr={this.state.bmr} calori={this.state.calori} goal={this.state.goal}/>
+                </Modal>
             </SafeAreaView>
         )
     }

@@ -9,7 +9,7 @@ export default class Calculators extends Component {
         return (
             <SafeAreaView>
                 
-                <BackButton props={this.props}/>
+                <BackButton goBack={()=>{this.props.navigation.goBack()}}/>
 
                  <ScrollView style={styles.itemList}>
                      <View style={{alignItems:"center"}}>
